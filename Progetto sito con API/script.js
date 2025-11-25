@@ -15,27 +15,31 @@ function showLoader(show) {
 }
 
 // Carica lista razze al caricamento della pagina
+// aggiunta del fatto che genera di base 6 immagini per evitare che le prime siano schiacciate🤣
 window.addEventListener("DOMContentLoaded", () => {
+  // Popola dropdown razze
   fetch("https://dog.ceo/api/breeds/list/all")
     .then((res) => res.json())
     .then((data) => {
-      breedList = Object.keys(data.message);
+      const breedList = Object.keys(data.message);
       breedList.forEach((breed) => {
         const option = document.createElement("option");
         option.value = breed;
         option.textContent = breed.charAt(0).toUpperCase() + breed.slice(1);
         breedSelect.appendChild(option);
       });
-    });
+    })
+    .catch((err) => console.error(err));
+
+  // Carica 6 cani casuali all’apertura
+  for (let i = 0; i < 6; i++) {
+    loadDog();
+  }
 });
 
-// Carica un cane (casuale o per razza)
 function loadDog() {
-  showLoader(true);
-
   let url = "https://dog.ceo/api/breeds/image/random";
   const selectedBreed = breedSelect.value;
-
   if (selectedBreed) {
     url = `https://dog.ceo/api/breed/${selectedBreed}/images/random`;
   }
@@ -48,6 +52,5 @@ function loadDog() {
       card.innerHTML = `<img src="${data.message}" alt="Cane">`;
       dogsContainer.prepend(card);
     })
-    .catch((err) => console.error("Errore:", err))
-    .finally(() => showLoader(false));
+    .catch((err) => console.error(err));
 }
