@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dog Explorer</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Genera immagini dei tuoi cani preferiti</h1>
+      <p>Scegli la razza:</p>
+
+      <div class="controls">
+        <select id="breedSelect">
+          <option value="">Tutte le razze</option>
+        </select>
+        <button id="loadDogBtn">Mostra Cane Casuale</button>
+      </div>
+    </header>
+
+    <div id="loader" class="hidden">Caricamento...</div>
+
+    <main>
+      <div id="dogsContainer"></div>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

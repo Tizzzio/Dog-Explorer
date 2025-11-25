@@ -1,0 +1,99 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #ffe6e6, #f0f0f5);
+  color: #333;
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #ff6f61;
+  text-shadow: 1px 1px 3px #aaa5;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+select,
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button {
+  background-color: #ff6f61;
+  color: white;
+}
+
+button:hover {
+  background-color: #e65b50;
+  transform: scale(1.05);
+}
+
+select {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#loader {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #ff6f61;
+}
+
+#loader.hidden {
+  display: none;
+}
+
+#dogsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.dog-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.dog-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dog-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: fill;
+  display: block;
+  border-radius: 20px 20px 0 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
